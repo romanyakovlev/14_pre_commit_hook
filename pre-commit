@@ -1,8 +1,8 @@
 #!/bin/bash
 
-str=$(python3 tests.py 2>&1)
-arr=(${str})
-if [ "${arr[-1]}" = "OK" ]; then
+python3 tests.py
+exit_code=$(echo $?)
+if [ $exit_code = 1 ]; then
 	echo "OK!  All tests in 'test.py' are correct. Commit created."
 else
 	echo "NOT OK!  Some test in 'tests.py' are incorrect. Launch 'python3 tests.py' and see which tests are wrong."
