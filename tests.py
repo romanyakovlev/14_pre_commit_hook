@@ -25,4 +25,8 @@ class QuadraticEquationTestCase(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()
+    test_suite = unittest.TestLoader().loadTestsFromTestCase(QuadraticEquationTestCase)
+    test_runner = unittest.TextTestRunner()
+    test_result = test_runner.run(test_suite)
+    test_success = 1 if test_result.wasSuccessful() is True else 0
+    sys.exit(test_success)
